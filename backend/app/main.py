@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.core.config import settings
 from app.core.logger import logger
-from app.api.v1 import projects, tasks, meetings, transcripts
+from app.api.v1 import projects, tasks, meetings, transcripts, ai
 
 
 app = FastAPI(
@@ -13,6 +13,7 @@ app.include_router(projects.router, prefix=f"{settings.API_V1_STR}/projects", ta
 app.include_router(tasks.router, prefix=f"{settings.API_V1_STR}/tasks", tags=["tasks"])
 app.include_router(meetings.router, prefix=f"{settings.API_V1_STR}/meetings", tags=["meetings"])
 app.include_router(transcripts.router, prefix=f"{settings.API_V1_STR}/transcripts", tags=["transcripts"])
+app.include_router(ai.router, prefix=f"{settings.API_V1_STR}/ai", tags=["ai"])
 
 
 @app.on_event("startup")

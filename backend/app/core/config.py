@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     DEBUG: bool = True
     DATABASE_URL: str
     SECRET_KEY: str
+    OPENAI_API_KEY: str = ""
 
     class Config:
         env_file = ".env"
